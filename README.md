@@ -1,4 +1,5 @@
 # Simple Text Editor skeleton
+# The component's purpose is to let to the user write and edit text. The component has several features for text # manipulation and formatting.
 
 ## Build Setup
 
