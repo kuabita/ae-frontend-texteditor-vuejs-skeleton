@@ -112,12 +112,13 @@ export default {
 }
 .main-container-editor {
   display: inline-flex;
-  padding: 13px 10px;
-  width: 100%;
+  padding: 30px 10px;
   justify-content: center;
 }
 @media only screen and (max-width: 768px) {
-  height: 100px;
+ .main-container-editor {
+    width: 90%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .iframe-container-editor iframe {
