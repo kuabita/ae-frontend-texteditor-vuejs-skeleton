@@ -5,7 +5,7 @@
       <Iframe/>
     </div>
     <div class="recommended-container-editor">
-      <Loader v-if="awaiting" width="25px" height="25px"/>
+      <Loader v-if="isLoading" width="25px" height="25px"/>
       <RecommendedSynonyms v-else/>
     </div>
   </div>
@@ -17,6 +17,7 @@ import RecommendedSynonyms from "./RecommendedSynonyms";
 import FormatOptionsHeader from "./FormatOptionsHeader";
 import Iframe from "./Iframe";
 import { EventBus } from "../EventBus.js";
+import { mapState } from 'vuex';
 
 export default {
   name: "TextEditor",
@@ -26,9 +27,11 @@ export default {
     RecommendedSynonyms,
     FormatOptionsHeader
   },
-  data: () => ({
-    awaiting: false
-  })
+  computed:{
+    ...mapState({
+      isLoading: state => state.recommendedWords.isLoading
+    })
+  },
 };
 </script>
 

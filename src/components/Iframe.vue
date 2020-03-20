@@ -39,6 +39,7 @@ export default {
   methods: {
     async handleIframeEvents() {
       var recommendedWords = {
+        loading: false,
         word: "",
         list: { data: [] }
       };
@@ -46,11 +47,12 @@ export default {
       const selectedWord = this.iframeDoc.getSelection().toString().replace(/\s+/g, '');
 
       if (selectedWord !== "") {
-        this.awaiting = true;
+        this.$store.dispatch("updateRecommendedWordsStatus", true);
         const synonyms = await this.restResourceService.getSynonyms(selectedWord);
-        this.awaiting = false;
+        this.$store.dispatch("updateRecommendedWordsStatus", false);
 
         recommendedWords = {
+          loading: false,
           word: selectedWord,
           list: synonyms
         };

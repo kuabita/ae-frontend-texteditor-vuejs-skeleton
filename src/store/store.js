@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     recommendedWords: {
+      isLoading: false,
       word: '',
       list: {
         data: []
@@ -24,6 +25,9 @@ export const store = new Vuex.Store({
     },
     APPLY_STYLE(state, payload) {
       state.availableStyles[payload.style].active = payload.value;
+    },
+    UPDATE_RECOMMENDED_WORDS_STATUS(state, payload) {
+      state.recommendedWords.isLoading = payload;
     }
   },
   actions: {
@@ -32,6 +36,9 @@ export const store = new Vuex.Store({
     },
     applyStyle(context, style) {
       context.commit('APPLY_STYLE', style);
+    },
+    updateRecommendedWordsStatus(context, status) {
+      context.commit('UPDATE_RECOMMENDED_WORDS_STATUS', status);
     }
   },
   getters: {
