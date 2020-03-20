@@ -58,8 +58,9 @@ export default {
       }
       this.$store.dispatch("setRecommendedWords", recommendedWords);
 
+      var state;
       Object.values(this.$store.getters.getAvailableStyles).forEach(style => {
-        const state = this.iframeDoc.queryCommandState(style.key) ? true : false;
+        state = this.iframeDoc.queryCommandState(style.key) ? true : false;
         this.$store.dispatch("applyStyle", {
           style: style.key,
           value: state
