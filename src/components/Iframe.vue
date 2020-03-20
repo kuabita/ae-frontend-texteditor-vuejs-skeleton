@@ -74,6 +74,7 @@ export default {
 <style>
 .iframe-container-editor {
   background-color: #F5F5F5;
+  height: 100%;
 }
 @media only screen and (max-width: 768px) {
   .iframe-container-editor iframe {
