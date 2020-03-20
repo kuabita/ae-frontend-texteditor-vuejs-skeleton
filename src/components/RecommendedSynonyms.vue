@@ -77,4 +77,9 @@ export default {
   color: grey;
   font-size: 15px;
 }
+@media only screen and (max-width: 768px) {
+ .description {
+    padding: 1px 0 6px 0;
+  }
+}
 </style>

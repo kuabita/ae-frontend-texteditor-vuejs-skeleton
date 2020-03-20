@@ -117,7 +117,7 @@ export default {
 }
 @media only screen and (max-width: 768px) {
  .main-container-editor {
-    width: 90%;
+    width: 95%;
   }
 }
 @media only screen and (max-width: 768px) {
