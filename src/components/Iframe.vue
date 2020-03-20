@@ -43,7 +43,6 @@ export default {
         word: "",
         list: { data: [] }
       };
-      const activatedStyles = this.getSelectedWordStyles();
       const selectedWord = this.iframeDoc.getSelection().toString().replace(/\s+/g, '');
 
       if (selectedWord !== "") {
@@ -57,24 +56,15 @@ export default {
           list: synonyms
         };
       }
-
       this.$store.dispatch("setRecommendedWords", recommendedWords);
 
       Object.values(this.$store.getters.getAvailableStyles).forEach(style => {
+        const state = this.iframeDoc.queryCommandState(style.key) ? true : false;
         this.$store.dispatch("applyStyle", {
           style: style.key,
-          value: activatedStyles.includes(style.key) ? true : false
+          value: state
         });
       }, this);
-    },
-    getSelectedWordStyles() {
-      var temporalStyles = [];
-      Object.values(this.$store.getters.getAvailableStyles).forEach(style => {
-        if (this.iframeDoc.queryCommandState(style.key)) {
-          temporalStyles.push(style.key);
-        }
-      });
-      return temporalStyles;
     }
   }
 };
