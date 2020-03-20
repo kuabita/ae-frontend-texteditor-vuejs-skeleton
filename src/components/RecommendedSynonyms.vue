@@ -79,7 +79,7 @@ export default {
 }
 @media only screen and (max-width: 768px) {
  .description {
-    padding: 1px 0 6px 0;
+    padding: 0 0 6px 0;
   }
 }
 </style>
