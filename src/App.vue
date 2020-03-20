@@ -2,25 +2,24 @@
   <div id="app">
     <Header/>
     <main>
-      <ControlPanel/>
-      <FileZone/>
+      <TextEditor/>
     </main>
   </div>
 </template>
 
 <script>
-import ControlPanel from './components/ControlPanel'
-import FileZone from './components/FileZone'
-import Header from './components/Header'
+import Header from "./components/Header";
+import TextEditor from "./components/TextEditor";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "@fortawesome/fontawesome-free/js/all.js";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    ControlPanel,
-    FileZone
+    TextEditor
   }
-}
+};
 </script>
 
 <style>
@@ -31,7 +30,5 @@ export default {
 }
 main {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
 }
 </style>
