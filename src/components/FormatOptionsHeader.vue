@@ -18,6 +18,16 @@
       class="format-selector">
       <i class="fa fa-underline"></i>
     </div>
+    <div
+      v-on:click="applyStyle($event, 'indent')"
+      class="format-selector">
+      <i class="fa fa-indent"></i>
+    </div>
+    <div
+      v-on:click="applyStyle($event, 'outdent')"
+      class="format-selector">
+      <i class="fa fa-outdent"></i>
+    </div>
   </div>
 </template>
 
