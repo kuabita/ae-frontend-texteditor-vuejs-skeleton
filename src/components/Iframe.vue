@@ -60,11 +60,13 @@ export default {
 
       var state;
       Object.values(this.$store.getters.getAvailableStyles).forEach(style => {
-        state = this.iframeDoc.queryCommandState(style.key) ? true : false;
-        this.$store.dispatch("applyStyle", {
-          style: style.key,
-          value: state
-        });
+        if (style.activable) {
+          state = this.iframeDoc.queryCommandState(style.key) ? true : false;
+          this.$store.dispatch("applyStyle", {
+            style: style.key,
+            value: state
+          });
+        }
       }, this);
     }
   }

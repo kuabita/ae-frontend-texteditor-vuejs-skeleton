@@ -1,6 +1,5 @@
 <template>
   <div class="recommended-section">
-
     <h1 v-if="recommendedWords.word === ''" class="recommended-header"> Synonyms </h1>
     <h1 v-else v-on:click="selectSynonymous($event, recommendedWords.word)" class="recommended-header clickable">
       {{ recommendedWords.word }}

@@ -1,51 +1,34 @@
 <template>
   <div class="menu-container-editor">
-    <div
-      v-on:click="applyStyle($event, 'bold')"
-      v-bind:class="{ 'active-selector': isEnabled('bold') }"
-      class="format-selector">
-      <i class="fas fa-bold"></i>
-    </div>
-    <div
-      v-on:click="applyStyle($event, 'italic')"
-      v-bind:class="{ 'active-selector': isEnabled('italic') }"
-      class="format-selector">
-      <i class="fas fa-italic"></i>
-    </div>
-    <div
-      v-on:click="applyStyle($event, 'underline')"
-      v-bind:class="{ 'active-selector': isEnabled('underline') }"
-      class="format-selector">
-      <i class="fa fa-underline"></i>
-    </div>
-    <div
-      v-on:click="applyStyle($event, 'indent')"
-      class="format-selector">
-      <i class="fa fa-indent"></i>
-    </div>
-    <div
-      v-on:click="applyStyle($event, 'outdent')"
-      class="format-selector">
-      <i class="fa fa-outdent"></i>
+    <div v-for="style in availableStyles"
+      class="format-selector"
+      v-bind:class="{ 'active-selector': style.activable && style.active }"
+      v-on:click="applyStyle($event, style)">
+      <i class="fa" :class="style.class"></i>
     </div>
   </div>
 </template>
 
 <script>
 import { EventBus } from "../EventBus.js";
+import { mapState, mapMutations, mapAction } from 'vuex';
 
 export default {
   name: "FormatOptionsHeader",
+  computed:{
+  ...mapState({
+    availableStyles: state => state.availableStyles
+  })
+  },
   methods: {
-    isEnabled(style) {
-      return this.$store.getters.getAvailableStyles[style].active;
-    },
     applyStyle(event, styleSelected) {
-      EventBus.$emit("apply-style", styleSelected);
-      this.$store.dispatch("applyStyle", {
-        style: styleSelected,
-        value: !this.$store.getters.getAvailableStyles[styleSelected].active
-      });
+      EventBus.$emit("apply-style", styleSelected.key);
+      if (styleSelected.activable) {
+        this.$store.dispatch("applyStyle", {
+          style: styleSelected.key,
+          value: !styleSelected.active
+        });
+      }
     }
   }
 };

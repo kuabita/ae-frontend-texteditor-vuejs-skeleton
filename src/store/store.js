@@ -13,11 +13,11 @@ export const store = new Vuex.Store({
       }
     },
     availableStyles: {
-      italic: { active: false, key: 'italic' },
-      bold: { active: false, key: 'bold' },
-      underline: { active: false, key: 'underline' },
-      indent: { active: false, key: 'indent' },
-      outdent: { active: false, key: 'outdent' }
+      italic: { active: false, key: 'italic', class: 'fa-italic', activable: true },
+      bold: { active: false, key: 'bold', class: 'fa-bold', activable: true },
+      underline: { active: false, key: 'underline', class: 'fa-underline', activable: true },
+      indent: { active: false, key: 'indent', class: 'fa-indent', activable: false },
+      outdent: { active: false, key: 'outdent', class: 'fa-outdent', activable: false }
     }
   },
   mutations: {
