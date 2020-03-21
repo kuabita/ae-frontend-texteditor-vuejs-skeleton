@@ -26,7 +26,7 @@ export default {
   },
   created() {
     EventBus.$on("apply-style", style => {
-      this.iframeDoc.execCommand(style);
+      this.iframeDoc.execCommand(style, false, null);
     });
     EventBus.$on("synonymous-selected", synonymous => {
       const textNode = document.createTextNode(synonymous);

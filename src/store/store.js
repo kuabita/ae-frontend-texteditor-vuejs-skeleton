@@ -15,7 +15,9 @@ export const store = new Vuex.Store({
     availableStyles: {
       italic: { active: false, key: 'italic' },
       bold: { active: false, key: 'bold' },
-      underline: { active: false, key: 'underline' }
+      underline: { active: false, key: 'underline' },
+      indent: { active: false, key: 'indent' },
+      outdent: { active: false, key: 'outdent' }
     }
   },
   mutations: {
