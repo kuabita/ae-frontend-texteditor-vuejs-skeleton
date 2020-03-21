@@ -1,4 +1,7 @@
 # Simple Text Editor
+
+### Demo: https://vue-coding-challenge.herokuapp.com/
+
 ## Build Setup
 
 ``` bash
