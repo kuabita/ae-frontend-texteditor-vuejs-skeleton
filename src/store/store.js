@@ -13,11 +13,41 @@ export const store = new Vuex.Store({
       }
     },
     availableStyles: {
-      italic: { active: false, key: 'italic', class: 'fa-italic', activable: true },
-      bold: { active: false, key: 'bold', class: 'fa-bold', activable: true },
-      underline: { active: false, key: 'underline', class: 'fa-underline', activable: true },
-      indent: { active: false, key: 'indent', class: 'fa-indent', activable: false },
-      outdent: { active: false, key: 'outdent', class: 'fa-outdent', activable: false }
+      italic: {
+        active: false,
+        key: 'italic',
+        class: 'fa-italic',
+        activable: true,
+        tooltip: 'Italic (Ctrl-I)'
+      },
+      bold: {
+        active: false,
+        key: 'bold',
+        class: 'fa-bold',
+        activable: true,
+        tooltip: 'Bold (Ctrl-B)'
+      },
+      underline: {
+        active: false,
+        key: 'underline',
+        class: 'fa-underline',
+        activable: true,
+        tooltip: 'Underline (Ctrl-U)'
+      },
+      indent: {
+        active: false,
+        key: 'indent',
+        class: 'fa-indent',
+        activable: false,
+        tooltip: 'More indentation'
+      },
+      outdent: {
+        active: false,
+        key: 'outdent',
+        class: 'fa-outdent',
+        activable: false,
+        tooltip: 'Less indentation'
+      }
     }
   },
   mutations: {
@@ -49,6 +79,9 @@ export const store = new Vuex.Store({
     },
     getRecommendedWords(state) {
       return state.recommendedWords;
+    },
+    getStyleByKey: (state) => (key) => {
+      return state.availableStyles[key];
     }
   }
 })
