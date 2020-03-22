@@ -3,7 +3,7 @@
     <div v-for="style in availableStyles"
       class="format-selector tooltip"
       v-bind:class="{ 'active-selector': style.activable && style.active}"
-      v-on:click="applyStyle($event, style, null)">
+      v-on:click="applyStyle($event, style)">
 
       <span class="tooltiptext">{{style.tooltip}}</span>
       <i class="fa" :class="style.class"></i>
@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     getColor(color) {
-      return 'background-color: ' + color + '; !important';
+      return 'background-color: ' + color;
     },
     applyStyle(event, styleSelected) {
-      EventBus.$emit("apply-style", { 'name': styleSelected.key});
+      EventBus.$emit("apply-style", styleSelected.key);
       if (styleSelected.activable) {
         this.$store.dispatch("applyStyle", {
           style: styleSelected.key,

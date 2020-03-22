@@ -18,55 +18,35 @@ export const store = new Vuex.Store({
         key: 'italic',
         class: 'fa-italic',
         activable: true,
-        tooltip: 'Italic (Ctrl-I)',
-        extraData: {
-          enabled: false,
-          data: []
-        }
+        tooltip: 'Italic (Ctrl-I)'
       },
       bold: {
         active: false,
         key: 'bold',
         class: 'fa-bold',
         activable: true,
-        tooltip: 'Bold (Ctrl-B)',
-        extraData: {
-          enabled: false,
-          data: []
-        }
+        tooltip: 'Bold (Ctrl-B)'
       },
       underline: {
         active: false,
         key: 'underline',
         class: 'fa-underline',
         activable: true,
-        tooltip: 'Underline (Ctrl-U)',
-        extraData: {
-          enabled: false,
-          data: []
-        }
+        tooltip: 'Underline (Ctrl-U)'
       },
       indent: {
         active: false,
         key: 'indent',
         class: 'fa-indent',
         activable: false,
-        tooltip: 'More indentation',
-        extraData: {
-          enabled: false,
-          data: []
-        }
+        tooltip: 'More indentation'
       },
       outdent: {
         active: false,
         key: 'outdent',
         class: 'fa-outdent',
         activable: false,
-        tooltip: 'Less indentation',
-        extraData: {
-          enabled: false,
-          data: []
-        }
+        tooltip: 'Less indentation'
       }
     }
   },

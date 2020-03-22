@@ -27,8 +27,8 @@ export default {
     this.restResourceService = new DatamuseService();
   },
   created() {
-    EventBus.$on("apply-style", event => {
-      this.iframeDoc.execCommand(event.name, false, null);
+    EventBus.$on("apply-style", name => {
+      this.iframeDoc.execCommand(name, false, null);
     });
     EventBus.$on("synonymous-selected", synonymous => {
       const textNode = document.createTextNode(synonymous);
