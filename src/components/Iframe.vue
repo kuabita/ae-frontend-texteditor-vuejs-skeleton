@@ -19,8 +19,8 @@ export default {
     this.iframeDoc = document.getElementById("iframe-editor-text").contentDocument;
     this.iframeDoc.designMode = "on";
 
-    this.iframeDoc.addEventListener('keydown', this.handleShortCutEvent.bind(this));
-    ['click', 'keyup', 'keydown'].forEach(
+    this.iframeDoc.addEventListener('keyup', this.handleShortCutEvent.bind(this));
+    ['click', 'keydown'].forEach(
       event => this.iframeDoc.addEventListener(event, this.handleIframeEvents.bind(this))
     );
 
@@ -52,7 +52,7 @@ export default {
       }
     },
     async handleIframeEvents(e) {
-      if (!e.ctrlKey && !Object.values(this.shortCutKeys).includes(e.keyCode)) {
+      if (!e.ctrlKey) {
         var recommendedWords = {
           loading: false,
           word: "",
