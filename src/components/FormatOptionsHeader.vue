@@ -23,9 +23,6 @@ export default {
   })
   },
   methods: {
-    getColor(color) {
-      return 'background-color: ' + color;
-    },
     applyStyle(event, styleSelected) {
       EventBus.$emit("apply-style", styleSelected.key);
       if (styleSelected.activable) {
